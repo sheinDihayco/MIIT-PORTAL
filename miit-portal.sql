@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 17, 2024 at 04:08 AM
+-- Generation Time: Jul 17, 2024 at 07:05 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -30,7 +30,6 @@ SET time_zone = "+00:00";
 CREATE TABLE `accounts` (
   `id` int(50) NOT NULL,
   `studentID` varchar(50) NOT NULL,
-  `yourEmail` varchar(50) NOT NULL,
   `yourUsername` varchar(50) NOT NULL,
   `yourPassword` varchar(50) NOT NULL,
   `mem_type` varchar(50) NOT NULL
@@ -40,9 +39,33 @@ CREATE TABLE `accounts` (
 -- Dumping data for table `accounts`
 --
 
-INSERT INTO `accounts` (`id`, `studentID`, `yourEmail`, `yourUsername`, `yourPassword`, `mem_type`) VALUES
-(1, 'MIIT2021137', 'dihayco020903@gmail.com', 'Sheinalie Dihayco', '$2y$10$AmFeyNo2eIZzE2stUBZs4.rmNsR41LJx9fOMZheBEGr', ''),
-(8, '', 'admin123@gmail.com', 'admin2024', '$2y$10$uzyg7LNmAOO2uB5XxKY49OLAM.wyXTiR8bCSUT9LueQ', 'Admin');
+INSERT INTO `accounts` (`id`, `studentID`, `yourUsername`, `yourPassword`, `mem_type`) VALUES
+(14, 'MIIT2021137', 'S. Dihayco', '$2y$10$M13uss8bG.oCflJQnykTuuyt37/AO8kukxA7tSBJe63', 'Student'),
+(15, 'MIIT2021139', 'stud_139', '$2y$10$Ajhcx9gCsTMP.k3swu34weL0tX6MWuKAwJYIbbU2lAz', 'Student');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `adminacctbl`
+--
+
+CREATE TABLE `adminacctbl` (
+  `id` int(11) NOT NULL,
+  `mem_type` varchar(20) NOT NULL,
+  `yourEmail` varchar(50) NOT NULL,
+  `yourUsername` varchar(50) NOT NULL,
+  `yourPassword` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `adminacctbl`
+--
+
+INSERT INTO `adminacctbl` (`id`, `mem_type`, `yourEmail`, `yourUsername`, `yourPassword`) VALUES
+(1, 'Admin', 'admin123@gmail.com', 'admin_123', '$2y$10$Z8cDE3luQxqm2kGEZDxY7.rm.S3ZO5tjdtuqnmJNkDU'),
+(2, 'Admin', 'admin1@gmail.com', 'admin1', '$2y$10$MBE.iAHUx9/QRopFsjEXEuC/pDjzRDpoT4T1L2AXgZv'),
+(3, 'Admin', 'admin2@gmail.com', 'admin2', '$2y$10$6LMKCdW7itlFmYGmBHQ1JORte.R25CAmvs/xAqb6Ib1'),
+(4, 'Admin', 'admin3@gmail.com', 'admin3', '$2y$10$M/d6ql512vTRHKmWj6tbRe2rMBi8nhgJJx6vuEPxAPP');
 
 -- --------------------------------------------------------
 
@@ -138,6 +161,12 @@ ALTER TABLE `accounts`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `adminacctbl`
+--
+ALTER TABLE `adminacctbl`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `events`
 --
 ALTER TABLE `events`
@@ -169,7 +198,13 @@ ALTER TABLE `schedules`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `adminacctbl`
+--
+ALTER TABLE `adminacctbl`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `events`
