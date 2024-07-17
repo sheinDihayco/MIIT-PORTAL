@@ -64,13 +64,13 @@
                     <p class="text-center small">Enter your username & password to login</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" action="pages-login-authentication.php" method="post" enctype="multipart/form-data" id="loginForm" novalidate>
+                  <form class="row g-3 needs-validation" action="pages-login-authentication.php" method="post" enctype="multipart/form-data" id="loginForm">
 
                     <div class="col-12">
-                      <label for="yourUsernameOrEmail" class="form-label">ID No. or Email</label>
+                      <label for="yourIdentifier" class="form-label">Student ID or Email</label>
                       <div class="input-group has-validation">
-                        <input type="text" name="yourUsernameOrEmail" class="form-control" id="yourUsernameOrEmail" required>
-                        <div class="invalid-feedback">Please enter your ID or email.</div>
+                        <input type="text" name="yourIdentifier" class="form-control" id="yourIdentifier" required>
+                        <div class="invalid-feedback">Please enter your Student ID or Email.</div>
                       </div>
                     </div>
 

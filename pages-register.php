@@ -64,8 +64,7 @@
                     <p class="text-center small">Enter your personal details to create account</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" action="pages-register-authentication.php" method="post" enctype="multipart/form-data" id="loginForm">
-
+                  <form class="row g-3 needs-validation" action="pages-register-authentication.php" method="post" enctype="multipart/form-data" id="loginForm" novalidate>
                     <div class="col-12">
                       <label for="mem_type" class="form-label">Type</label>
                       <select id="mem_type" name="mem_type" class="form-control" required onchange="toggleIDField()">
@@ -82,7 +81,7 @@
                       <div class="invalid-feedback">Please enter your ID number.</div>
                     </div>
 
-                    <div class="col-12">
+                    <div id="yourEmailField" class="col-12">
                       <label for="yourEmail" class="form-label">Email</label>
                       <input type="email" name="yourEmail" class="form-control" id="yourEmail" required>
                       <div class="invalid-feedback">Please enter a valid email address.</div>
@@ -144,14 +143,42 @@
 
   <script>
     function toggleIDField() {
-      var memType = document.getElementById("mem_type").value;
-      var studentIDField = document.getElementById("studentIDField");
-      if (memType === "Student") {
-        studentIDField.style.display = "block";
+      var memType = document.getElementById('mem_type').value;
+      var studentIDField = document.getElementById('studentIDField');
+      var yourEmailField = document.getElementById('yourEmailField');
+      var studentIDInput = document.getElementById('studentID');
+      var yourEmailInput = document.getElementById('yourEmail');
+
+      if (memType === 'Student') {
+        studentIDField.style.display = 'block';
+        yourEmailField.style.display = 'none';
+        studentIDInput.required = true;
+        yourEmailInput.required = false;
       } else {
-        studentIDField.style.display = "none";
+        studentIDField.style.display = 'none';
+        yourEmailField.style.display = 'block';
+        studentIDInput.required = false;
+        yourEmailInput.required = true;
       }
     }
+  </script>
+
+
+  <script src="path/to/your/js/bootstrap.bundle.min.js"></script>
+  <script>
+    (function() {
+      'use strict';
+      var forms = document.querySelectorAll('.needs-validation');
+      Array.prototype.slice.call(forms).forEach(function(form) {
+        form.addEventListener('submit', function(event) {
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    })();
   </script>
   <!-- Vendor JS Files -->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
